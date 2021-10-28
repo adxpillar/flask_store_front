@@ -1,8 +1,8 @@
 from flask import Flask
 from flask_restful import Api
-from flask_jwt_extended import JWTManager
+# from flask_jwt_extended import JWTManager
 
-from security import authenticate, identity
+# from security import authenticate, identity
 from resources.user import UserRegister
 from resources.item import Item, ItemList
 from resources.store import Store, StoreList
@@ -14,14 +14,7 @@ app.config['JWT_SECRET_KEY'] = 'jwt-secret-string'
 app.secret_key = 'jose'
 api = Api(app)
 
-from db import db 
-
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
-jwt = JWTManager(app)
-db.init_app(app)
+# jwt = JWTManager(app)
 
 api.add_resource(Item, '/item/<string:name>')
 api.add_resource(ItemList, '/items')
