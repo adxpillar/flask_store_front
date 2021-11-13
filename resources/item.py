@@ -1,4 +1,3 @@
-from sqlite3.dbapi2 import connect
 from flask_restful import Resource, reqparse 
 from models.item import ItemModel
 
@@ -16,7 +15,7 @@ class Item(Resource):
     parser.add_argument('store_id',
     type = int,
     required = True,
-    help="Every store needs a store id!"
+    help="Every item needs a store id!"
     )
 
     # @jwt_required()
